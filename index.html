@@ -15,6 +15,20 @@
     </header>
 
     <main>
+        <!-- Форма додавання товару (для перевірки регулярними виразами) -->
+        <section class="admin-panel">
+            <h2>Додати новий товар (Панель адміністратора)</h2>
+            <form id="add-product-form" onsubmit="addProduct(event)" novalidate>
+                <input type="text" id="product-name" placeholder="Назва товару">
+                <span id="product-name-error" class="error"></span>
+                
+                <input type="text" id="product-price" placeholder="Ціна (напр. 1500.00)">
+                <span id="product-price-error" class="error"></span>
+                
+                <button type="submit" class="btn">Додати товар</button>
+            </form>
+        </section>
+
         <h2>Наші товари</h2>
         <div class="products" id="product-list">
             <!-- Товари додаються через JS -->
@@ -32,12 +46,19 @@
             <p><strong>Загальна сума: <span id="cart-total">0</span> грн</strong></p>
             
             <h3>Оформлення замовлення</h3>
-            <!-- Поля введення інформації -->
-            <form id="order-form" onsubmit="placeOrder(event)">
-                <input type="text" id="customer-name" placeholder="Ваше ім'я" required>
-                <input type="tel" id="customer-phone" placeholder="Номер телефону" required>
-                <input type="email" id="customer-email" placeholder="Email" required>
-                <textarea id="customer-address" placeholder="Адреса доставки" required></textarea>
+            <form id="order-form" onsubmit="placeOrder(event)" novalidate>
+                <input type="text" id="customer-name" placeholder="Ваше ім'я">
+                <span id="name-error" class="error"></span>
+
+                <input type="tel" id="customer-phone" placeholder="Номер телефону (+380...)">
+                <span id="phone-error" class="error"></span>
+
+                <input type="email" id="customer-email" placeholder="Email">
+                <span id="email-error" class="error"></span>
+
+                <textarea id="customer-address" placeholder="Адреса доставки"></textarea>
+                <span id="address-error" class="error"></span>
+
                 <button type="submit">Оформити замовлення</button>
             </form>
         </div>
